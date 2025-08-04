@@ -1,0 +1,98 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild build -scheme dafoma_16 -destination "platform=iOS Simulator,name=iPhone 15"
+
+User defaults from command line:
+    IDEPackageSupportUseBuiltinSCM = YES
+
+2025-08-04 19:50:00.515 xcodebuild[38665:4519335] Writing error result bundle to /var/folders/55/3nty3vr15yq7ggmv5jkp026h0000gn/T/ResultBundle_2025-04-08_19-50-0000.xcresult
+xcodebuild: error: Unable to find a device matching the provided destination specifier:
+		{ platform:iOS Simulator, OS:latest, name:iPhone 15 }
+
+	The requested device could not be found because no available devices matched the request.
+
+	Available destinations for the "dafoma_16" scheme:
+		{ platform:iOS, arch:arm64, id:00008130-0012213A2883401C, name:iPhone 15 Pro Max (Slava) }
+		{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+		{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+		{ platform:iOS Simulator, id:7497DB1B-2381-45CD-B243-0B950E321498, OS:17.5, name:iPad (10th generation) }
+		{ platform:iOS Simulator, id:7497DB1B-2381-45CD-B243-0B950E321498, OS:17.5, name:iPad (10th generation) }
+		{ platform:iOS Simulator, id:3B57E86E-DE5E-4048-B1EC-1DB9BDCF1C36, OS:18.0, name:iPad (10th generation) }
+		{ platform:iOS Simulator, id:3B57E86E-DE5E-4048-B1EC-1DB9BDCF1C36, OS:18.0, name:iPad (10th generation) }
+		{ platform:iOS Simulator, id:D6D70D2D-AB91-4A6F-BC35-03906556607E, OS:18.3.1, name:iPad (10th generation) }
+		{ platform:iOS Simulator, id:D6D70D2D-AB91-4A6F-BC35-03906556607E, OS:18.3.1, name:iPad (10th generation) }
+		{ platform:iOS Simulator, id:981E1F78-93DA-4D3F-AABD-97ECC7740E6A, OS:17.5, name:iPad Air 11-inch (M2) }
+		{ platform:iOS Simulator, id:981E1F78-93DA-4D3F-AABD-97ECC7740E6A, OS:17.5, name:iPad Air 11-inch (M2) }
+		{ platform:iOS Simulator, id:537D0FAB-A286-450C-A98B-9565237BE20F, OS:18.0, name:iPad Air 11-inch (M2) }
+		{ platform:iOS Simulator, id:537D0FAB-A286-450C-A98B-9565237BE20F, OS:18.0, name:iPad Air 11-inch (M2) }
+		{ platform:iOS Simulator, id:E8C76D8D-49B2-4D3B-AFDE-6F9FCF353332, OS:18.3.1, name:iPad Air 11-inch (M2) }
+		{ platform:iOS Simulator, id:E8C76D8D-49B2-4D3B-AFDE-6F9FCF353332, OS:18.3.1, name:iPad Air 11-inch (M2) }
+		{ platform:iOS Simulator, id:F7BFE970-3582-44BC-9343-3F3F1960C276, OS:17.5, name:iPad Air 13-inch (M2) }
+		{ platform:iOS Simulator, id:F7BFE970-3582-44BC-9343-3F3F1960C276, OS:17.5, name:iPad Air 13-inch (M2) }
+		{ platform:iOS Simulator, id:C021630E-D188-4EB7-AB78-00D1E0438154, OS:18.0, name:iPad Air 13-inch (M2) }
+		{ platform:iOS Simulator, id:C021630E-D188-4EB7-AB78-00D1E0438154, OS:18.0, name:iPad Air 13-inch (M2) }
+		{ platform:iOS Simulator, id:E53D6B96-A9F0-4D3F-BC97-10D6D3DDFF02, OS:18.3.1, name:iPad Air 13-inch (M2) }
+		{ platform:iOS Simulator, id:E53D6B96-A9F0-4D3F-BC97-10D6D3DDFF02, OS:18.3.1, name:iPad Air 13-inch (M2) }
+		{ platform:iOS Simulator, id:6DE00B80-362E-4CA3-B649-FD2F45AB7C56, OS:17.5, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, id:6DE00B80-362E-4CA3-B649-FD2F45AB7C56, OS:17.5, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, id:A0C0968B-229E-4F76-BABA-CA46D022FC99, OS:18.0, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, id:A0C0968B-229E-4F76-BABA-CA46D022FC99, OS:18.0, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, id:AC6DE59A-1396-4A1C-B590-56CE42000AC1, OS:18.3.1, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, id:AC6DE59A-1396-4A1C-B590-56CE42000AC1, OS:18.3.1, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, id:866815C0-49BB-4C72-81CF-CCBC2144155C, OS:17.5, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, id:866815C0-49BB-4C72-81CF-CCBC2144155C, OS:17.5, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, id:4472568C-EB13-49DC-8ED2-A2236EC4E153, OS:18.0, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, id:4472568C-EB13-49DC-8ED2-A2236EC4E153, OS:18.0, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, id:0D49D716-883D-4C17-A813-F0E6086EB7B7, OS:18.3.1, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, id:0D49D716-883D-4C17-A813-F0E6086EB7B7, OS:18.3.1, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, id:D062B195-5D9B-402B-9424-A925545F2261, OS:17.5, name:iPad mini (6th generation) }
+		{ platform:iOS Simulator, id:D062B195-5D9B-402B-9424-A925545F2261, OS:17.5, name:iPad mini (6th generation) }
+		{ platform:iOS Simulator, id:FFBCCE2D-202C-4329-AD24-6511EA9CFED1, OS:18.0, name:iPad mini (6th generation) }
+		{ platform:iOS Simulator, id:FFBCCE2D-202C-4329-AD24-6511EA9CFED1, OS:18.0, name:iPad mini (6th generation) }
+		{ platform:iOS Simulator, id:2589513C-E082-4B31-ADD7-19378C7A5CE6, OS:18.3.1, name:iPad mini (6th generation) }
+		{ platform:iOS Simulator, id:2589513C-E082-4B31-ADD7-19378C7A5CE6, OS:18.3.1, name:iPad mini (6th generation) }
+		{ platform:iOS Simulator, id:9C1AC704-EBA6-4D50-B28F-A59627DB074A, OS:18.3.1, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, id:9C1AC704-EBA6-4D50-B28F-A59627DB074A, OS:18.3.1, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, id:8898135C-DD39-44BB-B72F-1D30354442E8, OS:17.5, name:iPhone 15 }
+		{ platform:iOS Simulator, id:8898135C-DD39-44BB-B72F-1D30354442E8, OS:17.5, name:iPhone 15 }
+		{ platform:iOS Simulator, id:2F106E93-8067-4F2E-86EF-EFB79FC01E3D, OS:17.5, name:iPhone 15 Plus }
+		{ platform:iOS Simulator, id:2F106E93-8067-4F2E-86EF-EFB79FC01E3D, OS:17.5, name:iPhone 15 Plus }
+		{ platform:iOS Simulator, id:57239AFA-0FEE-4618-BF8F-DBB86602834C, OS:18.0, name:iPhone 15 Plus }
+		{ platform:iOS Simulator, id:57239AFA-0FEE-4618-BF8F-DBB86602834C, OS:18.0, name:iPhone 15 Plus }
+		{ platform:iOS Simulator, id:31D46096-42F2-46D9-BF37-F54223734B78, OS:17.5, name:iPhone 15 Pro }
+		{ platform:iOS Simulator, id:31D46096-42F2-46D9-BF37-F54223734B78, OS:17.5, name:iPhone 15 Pro }
+		{ platform:iOS Simulator, id:199FEF17-B875-4D7D-B8DA-CD8E43047D58, OS:18.0, name:iPhone 15 Pro }
+		{ platform:iOS Simulator, id:199FEF17-B875-4D7D-B8DA-CD8E43047D58, OS:18.0, name:iPhone 15 Pro }
+		{ platform:iOS Simulator, id:0D823297-24CF-4582-BBC4-9F91B062355E, OS:17.5, name:iPhone 15 Pro Max }
+		{ platform:iOS Simulator, id:0D823297-24CF-4582-BBC4-9F91B062355E, OS:17.5, name:iPhone 15 Pro Max }
+		{ platform:iOS Simulator, id:51E860B9-FC2C-488F-B3FA-E8312A74BCFC, OS:18.0, name:iPhone 15 Pro Max }
+		{ platform:iOS Simulator, id:51E860B9-FC2C-488F-B3FA-E8312A74BCFC, OS:18.0, name:iPhone 15 Pro Max }
+		{ platform:iOS Simulator, id:48FD3569-88F1-4403-9A47-4EA48B0D017E, OS:17.5, name:iPhone 15_6560 }
+		{ platform:iOS Simulator, id:48FD3569-88F1-4403-9A47-4EA48B0D017E, OS:17.5, name:iPhone 15_6560 }
+		{ platform:iOS Simulator, id:41B6B0FE-68D8-4629-B5CF-F4FCE9A475B0, OS:17.5, name:iPhone 15_9918 }
+		{ platform:iOS Simulator, id:41B6B0FE-68D8-4629-B5CF-F4FCE9A475B0, OS:17.5, name:iPhone 15_9918 }
+		{ platform:iOS Simulator, id:571A7E19-1D4A-4FBA-9303-F2EBA211F96B, OS:17.5, name:iPhone 15_TestDevice_1737475222 }
+		{ platform:iOS Simulator, id:571A7E19-1D4A-4FBA-9303-F2EBA211F96B, OS:17.5, name:iPhone 15_TestDevice_1737475222 }
+		{ platform:iOS Simulator, id:72AB2C94-62AA-4F6A-BBA9-78D015A00E3A, OS:17.5, name:iPhone 15_TestDevice_1737475360 }
+		{ platform:iOS Simulator, id:72AB2C94-62AA-4F6A-BBA9-78D015A00E3A, OS:17.5, name:iPhone 15_TestDevice_1737475360 }
+		{ platform:iOS Simulator, id:DAF5384E-9F35-4C3D-A3D9-AB1FA6CB2F3A, OS:18.0, name:iPhone 16 }
+		{ platform:iOS Simulator, id:DAF5384E-9F35-4C3D-A3D9-AB1FA6CB2F3A, OS:18.0, name:iPhone 16 }
+		{ platform:iOS Simulator, id:CA08360C-57BD-4874-A57D-D8082D51393A, OS:18.3.1, name:iPhone 16 }
+		{ platform:iOS Simulator, id:CA08360C-57BD-4874-A57D-D8082D51393A, OS:18.3.1, name:iPhone 16 }
+		{ platform:iOS Simulator, id:B447BDC9-2752-4EA3-B9F3-A036BED10CD1, OS:18.0, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, id:B447BDC9-2752-4EA3-B9F3-A036BED10CD1, OS:18.0, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, id:DA532083-0B31-4F5E-A8A8-5BB5D0C8823A, OS:18.3.1, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, id:DA532083-0B31-4F5E-A8A8-5BB5D0C8823A, OS:18.3.1, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, id:12E69CF7-F4D2-4E44-B769-7EA67000584D, OS:18.0, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, id:12E69CF7-F4D2-4E44-B769-7EA67000584D, OS:18.0, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, id:CFF70AE7-70E5-4D22-8A1C-12BCFA0D7F78, OS:18.3.1, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, id:CFF70AE7-70E5-4D22-8A1C-12BCFA0D7F78, OS:18.3.1, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, id:101FB8AC-B503-4408-ABC4-EB3556901F9F, OS:18.0, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, id:101FB8AC-B503-4408-ABC4-EB3556901F9F, OS:18.0, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, id:7DF58703-03AF-452A-B20B-7B4ECF54B604, OS:18.3.1, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, id:7DF58703-03AF-452A-B20B-7B4ECF54B604, OS:18.3.1, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, id:48636A41-72B2-4011-B1E0-F7E0761F9127, OS:17.5, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, id:48636A41-72B2-4011-B1E0-F7E0761F9127, OS:17.5, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, id:A54F4E77-F8CE-4527-A6B8-6517A1DE6B95, OS:18.0, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, id:A54F4E77-F8CE-4527-A6B8-6517A1DE6B95, OS:18.0, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, id:673F4197-4E15-4F0F-BD7C-D81A30E922AE, OS:18.3.1, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, id:673F4197-4E15-4F0F-BD7C-D81A30E922AE, OS:18.3.1, name:iPhone SE (3rd generation) }
