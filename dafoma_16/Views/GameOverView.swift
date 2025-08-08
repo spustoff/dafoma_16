@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GameOverView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var gameManager: GameManager
     @EnvironmentObject var userSettings: UserSettings
     @State private var showShareSheet = false
@@ -29,8 +30,9 @@ struct GameOverView: View {
                     // Action Buttons
                     actionButtons
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 20)
                 .padding(.top, 40)
+                .frame(maxWidth: horizontalSizeClass == .regular ? 800 : .infinity, alignment: .center)
             }
             
             if showConfetti {
@@ -98,7 +100,7 @@ struct GameOverView: View {
                     .background(FlavorQuestColors.textSecondary.opacity(0.3))
                 
                 // Detailed Stats
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 20) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: horizontalSizeClass == .regular ? 3 : 2), spacing: 20) {
                     StatDetailCard(
                         title: "Time Taken",
                         value: results.formattedTime,

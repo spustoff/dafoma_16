@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainMenuView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var gameManager: GameManager
     @EnvironmentObject var userSettings: UserSettings
     @State private var showSettings = false
@@ -27,8 +28,9 @@ struct MainMenuView: View {
                     // Quick Actions
                     quickActionsRow
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 20)
                 .padding(.top, 20)
+                .frame(maxWidth: horizontalSizeClass == .regular ? 800 : .infinity, alignment: .center)
             }
             .background(FlavorQuestColors.background.ignoresSafeArea())
             .navigationBarHidden(true)
@@ -157,7 +159,7 @@ struct MainMenuView: View {
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundColor(FlavorQuestColors.textPrimary)
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 2), spacing: 16) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: horizontalSizeClass == .regular ? 3 : 2), spacing: 16) {
                 GameModeCard(
                     mode: .culinaryChallenge,
                     primaryColor: FlavorQuestColors.primary
@@ -199,7 +201,7 @@ struct MainMenuView: View {
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .foregroundColor(FlavorQuestColors.textPrimary)
                 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 16) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: horizontalSizeClass == .regular ? 4 : 3), spacing: 16) {
                     StatCard(
                         title: "Games Played",
                         value: "\(gameManager.playerProgress.gamesPlayed)",

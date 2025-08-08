@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GamePlayView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var gameManager: GameManager
     @EnvironmentObject var userSettings: UserSettings
     @State private var showPauseMenu = false
@@ -25,8 +26,9 @@ struct GamePlayView: View {
                         // Action Area
                         actionArea
                     }
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 20)
                     .padding(.top, 20)
+                    .frame(maxWidth: horizontalSizeClass == .regular ? 900 : .infinity)
                 }
             }
         }
@@ -82,7 +84,7 @@ struct GamePlayView: View {
                 }
             }
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 20)
         .padding(.top, 20)
     }
     
@@ -128,7 +130,7 @@ struct GamePlayView: View {
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .foregroundColor(FlavorQuestColors.textPrimary)
                 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 3), spacing: 12) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: horizontalSizeClass == .regular ? 5 : 3), spacing: 12) {
                     ForEach(gameManager.currentIngredients) { ingredient in
                         IngredientCard(
                             ingredient: ingredient,
@@ -242,7 +244,7 @@ struct GamePlayView: View {
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                             .foregroundColor(FlavorQuestColors.textPrimary)
                         
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 8) {
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: horizontalSizeClass == .regular ? 5 : 3), spacing: 8) {
                             ForEach(Array(gameManager.guessedIngredients), id: \.self) { ingredient in
                                 Text(ingredient.capitalized)
                                     .font(.system(size: 12, weight: .medium, design: .rounded))
@@ -284,7 +286,7 @@ struct GamePlayView: View {
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .foregroundColor(FlavorQuestColors.textPrimary)
                 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: 3), spacing: 16) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 16), count: horizontalSizeClass == .regular ? 6 : 3), spacing: 16) {
                     ForEach(gameManager.currentIngredients) { ingredient in
                         VStack(spacing: 8) {
                             Text(ingredient.icon)

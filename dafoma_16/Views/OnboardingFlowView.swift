@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct OnboardingFlowView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var gameManager: GameManager
     @EnvironmentObject var userSettings: UserSettings
     @State private var currentPage = 0
@@ -38,6 +39,7 @@ struct OnboardingFlowView: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .animation(.easeInOut, value: currentPage)
+                .frame(maxWidth: horizontalSizeClass == .regular ? 800 : .infinity, alignment: .center)
                 
                 VStack {
                     Spacer()
@@ -78,7 +80,7 @@ struct OnboardingFlowView: View {
                         }
                         .buttonStyle(FlavorQuestButtonStyle(style: currentPage == pages.count - 1 ? .accent : .primary))
                     }
-                    .padding(.horizontal, 32)
+                    .padding(.horizontal, horizontalSizeClass == .regular ? 48 : 32)
                     .padding(.bottom, 50)
                 }
             }
@@ -103,10 +105,14 @@ struct OnboardingFlowView: View {
 
 // MARK: - Introduction View
 struct IntroductionView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var animateChef = false
     @State private var animateIngredients = false
     
-    var body: some View {
+    private var isSmallScreen: Bool { horizontalSizeClass == .compact || verticalSizeClass == .compact }
+    
+    private var content: some View {
         VStack(spacing: 40) {
             Spacer()
             
@@ -165,10 +171,23 @@ struct IntroductionView: View {
             animateIngredients = true
         }
     }
+    
+    var body: some View {
+        if isSmallScreen {
+            ScrollView {
+                content
+                    .padding(.bottom, 160)
+            }
+        } else {
+            content
+        }
+    }
 }
 
 // MARK: - Tutorial View
 struct TutorialView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var currentStep = 0
     @State private var selectedIngredient: String? = nil
     
@@ -195,7 +214,7 @@ struct TutorialView: View {
         )
     ]
     
-    var body: some View {
+    private var content: some View {
         VStack(spacing: 40) {
             // Title
             Text("How to Play")
@@ -250,6 +269,18 @@ struct TutorialView: View {
             .animation(.easeInOut, value: selectedIngredient)
         }
         .padding(.horizontal, 32)
+    }
+    
+    var body: some View {
+        let isSmallScreen = horizontalSizeClass == .compact || verticalSizeClass == .compact
+        if isSmallScreen {
+            ScrollView {
+                content
+                    .padding(.bottom, 160)
+            }
+        } else {
+            content
+        }
     }
 }
 
@@ -330,10 +361,12 @@ struct PersonalizationView: View {
 
 // MARK: - Welcome Splash View
 struct WelcomeSplashView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var animate = false
     @State private var showConfetti = false
     
-    var body: some View {
+    private var content: some View {
         ZStack {
             VStack(spacing: 40) {
                 Spacer()
@@ -394,6 +427,18 @@ struct WelcomeSplashView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                 showConfetti = true
             }
+        }
+    }
+    
+    var body: some View {
+        let isSmallScreen = horizontalSizeClass == .compact || verticalSizeClass == .compact
+        if isSmallScreen {
+            ScrollView {
+                content
+                    .padding(.bottom, 160)
+            }
+        } else {
+            content
         }
     }
 }

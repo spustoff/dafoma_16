@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @EnvironmentObject var gameManager: GameManager
     @EnvironmentObject var userSettings: UserSettings
     @StateObject private var storageService = StorageService.shared
@@ -22,11 +23,24 @@ struct ContentView: View {
                 case .onboarding:
                     OnboardingFlowView()
                 case .mainMenu:
-                    MainMenuView()
+                    if horizontalSizeClass == .regular {
+                        // Center content in a column for iPad
+                        HStack { Spacer() ; MainMenuView().frame(maxWidth: 800) ; Spacer() }
+                    } else {
+                        MainMenuView()
+                    }
                 case .playing:
-                    GamePlayView()
+                    if horizontalSizeClass == .regular {
+                        HStack { Spacer() ; GamePlayView().frame(maxWidth: 900) ; Spacer() }
+                    } else {
+                        GamePlayView()
+                    }
                 case .gameOver:
-                    GameOverView()
+                    if horizontalSizeClass == .regular {
+                        HStack { Spacer() ; GameOverView().frame(maxWidth: 800) ; Spacer() }
+                    } else {
+                        GameOverView()
+                    }
                 case .settings:
                     SettingsView()
                 case .paused:
