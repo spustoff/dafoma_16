@@ -22,6 +22,7 @@ class GameManager: ObservableObject {
     @Published var selectedIngredients: [Ingredient] = []
     @Published var guessedIngredients: Set<String> = Set()
     @Published var gameResults: GameResults?
+    @Published var presentARCamera: Bool = false
     
     // MARK: - Services
     private let dataService = GameDataService.shared

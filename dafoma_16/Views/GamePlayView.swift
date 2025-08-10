@@ -392,9 +392,7 @@ struct GamePlayView: View {
                         .foregroundColor(FlavorQuestColors.textSecondary)
                         .multilineTextAlignment(.center)
                     
-                    Button("Launch AR Camera") {
-                        // TODO: Implement AR functionality
-                    }
+                    Button("Launch AR Camera") { gameManager.presentARCamera = true }
                     .buttonStyle(FlavorQuestButtonStyle(style: .accent))
                 }
             }
@@ -405,6 +403,9 @@ struct GamePlayView: View {
                 .foregroundColor(FlavorQuestColors.textSecondary)
             
             ingredientMasteryContent
+        }
+        .fullScreenCover(isPresented: $gameManager.presentARCamera) {
+            ARCameraContainer()
         }
     }
     
