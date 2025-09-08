@@ -254,7 +254,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"dafoma_16/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Vul Quest : Flavor";
+				INFOPLIST_KEY_CFBundleDisplayName = "VulQuest Flavor";
 				INFOPLIST_KEY_NSCameraUsageDescription = "AR gameplay needs camera access to place virtual objects";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Optional: Save snapshots from AR gameplay";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Optional: Save snapshots from AR gameplay";
@@ -269,7 +269,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "app.dafoma-16";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -292,7 +292,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"dafoma_16/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Vul Quest : Flavor";
+				INFOPLIST_KEY_CFBundleDisplayName = "VulQuest Flavor";
 				INFOPLIST_KEY_NSCameraUsageDescription = "AR gameplay needs camera access to place virtual objects";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Optional: Save snapshots from AR gameplay";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Optional: Save snapshots from AR gameplay";
@@ -307,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "app.dafoma-16";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
